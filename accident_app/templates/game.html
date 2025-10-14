@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick the Safer Road Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Pick the Safer Road Game</h2>
+    
+    <div id="game-section">
+        <h3>Pick the Safer Road</h3>
+        <button type="button" id="new-game-btn">New Roads</button>
+        <div id="roads-container"></div>
+        <p id="game-result"></p>
+        <p id="score-display">Score: 0</p>
+    </div>
+
+    <a href="{{url_for('main.index') }}">
+        <button type="button">Back to Predictor</button>
+    </a>
+</div>
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

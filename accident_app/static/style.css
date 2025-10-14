@@ -1,172 +1,155 @@
-/* === General Page Styling === */
+/* ===== General Styles ===== */
 body {
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #007bff, #00c6ff);
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
-/* === Form Container === */
 .container {
-  background: #ffffff;
-  padding: 2rem 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  width: 90%;
-  max-width: 450px;
-  transition: transform 0.3s ease;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.container:hover {
-  transform: translateY(-5px);
-}
-
-/* === Title === */
 h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2f3640;
 }
 
-/* === Form Layout === */
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 1rem;
-  row-gap: 1rem;
+h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #353b48;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
+/* ===== Form Styles ===== */
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.form-group.half {
-  grid-column: span 1;
-}
-
-.form-group:not(.half) {
-  grid-column: span 2;
-}
-
-/* === Labels and Inputs === */
 label {
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 5px;
+    font-weight: 500;
+    margin-bottom: 4px;
 }
 
-.form-control {
-  padding: 0.6rem 0.75rem;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  font-size: 0.95rem;
+input[type="number"],
+input[type="range"],
+select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #dcdde1;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.form-control:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+input[type="checkbox"] {
+    margin-right: 6px;
+    transform: scale(1.1);
 }
 
-/* === Checkbox Styling === */
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  color: #333;
+input[type="range"] {
+    width: 100%;
 }
 
-.checkbox-label input {
-  accent-color: #007bff;
-  transform: scale(1.2);
+/* Buttons */
+button {
+    padding: 10px 16px;
+    background-color: #00a8ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
 }
 
-/* === Submit Button === */
-.submit-btn {
-  grid-column: span 2;
-  padding: 0.75rem;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #007bff, #00c6ff);
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-  font-size: 1rem;
+button:hover {
+    background-color: #0097e6;
 }
 
-.submit-btn:hover {
-  background: linear-gradient(135deg, #0056d2, #0094d4);
-  transform: translateY(-2px);
+/* ===== Prediction Result ===== */
+#prediction-result {
+    margin-top: 25px;
+    text-align: center;
 }
 
-/* === Responsive Design === */
-@media (max-width: 480px) {
-  .container {
-    padding: 1.5rem;
-    border-radius: 15px;
-  }
-
-  form {
-    grid-template-columns: 1fr;
-  }
-
-  .submit-btn {
-    grid-column: span 1;
-  }
+#risk-text {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
 }
 
-/* Result Page Enhancements */
-.result-box {
-  background: #ffffff; /* White background for contrast */
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
-  padding: 1.2rem;
-  text-align: center;
-  margin-top: 1rem;
-  color: #000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* ===== Game Section ===== */
+#game-section {
+    margin-top: 30px;
+    text-align: center;
 }
 
-.greeting {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  color: #000;
+#roads-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
 }
 
-.prediction {
-  font-size: 1.1rem;
-  margin: 0.5rem 0;
-  color: #000;
+.road-option {
+    padding: 15px 20px;
+    background-color: #f1f2f6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+    min-width: 120px;
 }
 
-.prediction strong {
-  color: #0077b6;  /* A calm blue accent */
-  font-weight: 700;
+.road-option:hover {
+    background-color: #dcdde1;
+    transform: scale(1.05);
 }
 
-.advice {
-  color: #0077b6;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: 0.8rem;
+#game-result {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #2f3640;
 }
 
-.form-text {
-  display: block;
-  color: black;
-  font-size: 0.85rem;
-  margin-top: 0.25rem;
+#score-display {
+    margin-top: 10px;
+    font-size: 16px;
 }
 
+/* ===== Game/Predictor Link ===== */
+.game-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px 20px;
+    }
+
+    #roads-container {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .road-option {
+        min-width: 80%;
+    }
+}
