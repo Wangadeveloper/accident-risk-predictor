@@ -5,6 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pick the Safer Road Game</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        #gameCanvas {
+            border: 2px solid #007bff;
+            background-color: #eaf1f8;
+            margin-top: 15px;
+            border-radius: 12px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #popup-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #popup-content {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+            animation: pop 0.3s ease;
+        }
+
+        @keyframes pop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        #roads-container button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        #roads-container button:hover {
+            background-color: #0056b3;
+        }
+
+        #continue-btn {
+            background: #28a745;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .back-link {
+            margin-top: 15px;
+        }
+
+        .back-btn {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background: #333;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,24 +128,20 @@
         pick the safer road based on road descriptions. Choose wisely — you only have 3 lives!
     </p>
 
-    <!-- Runner Section -->
     <div id="runner-section">
         <h2>🏃 Road Safety Runner</h2>
-
         <div class="stats">
             <p id="lives">Lives: 3</p>
             <p id="score">Score: 0</p>
         </div>
-
         <canvas id="gameCanvas" width="700" height="300"></canvas>
-
         <div class="controls">
             <button id="new-game-btn">New Game</button>
         </div>
     </div>
 
     <!-- Popup Modal -->
-    <div id="popup-modal" class="hidden">
+    <div id="popup-modal">
         <div id="popup-content">
             <h3>🛣️ Choose Your Road</h3>
             <div id="roads-container"></div>
@@ -40,8 +149,7 @@
             <button id="continue-btn" class="hidden">Continue</button>
         </div>
     </div>
-    
-    <!-- Navigation -->
+
     <div class="back-link">
         <a href="{{ url_for('main.index') }}">
             <button type="button" class="back-btn">← Back to Predictor</button>

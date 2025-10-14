@@ -1,0 +1,181 @@
+/* Global Styles */
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #dfe9f3, #ffffff);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    color: #0078d7;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Section */
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem 2rem;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+input[type="number"],
+select,
+input[type="range"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #0078d7;
+    box-shadow: 0 0 4px rgba(0, 120, 215, 0.3);
+}
+
+input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: #0078d7;
+}
+
+/* Range Display */
+#curvature_val {
+    font-weight: bold;
+    color: #0078d7;
+}
+
+/* Predict Button */
+#predict-btn {
+    grid-column: span 2;
+    background: #0078d7;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+#predict-btn:hover {
+    background: #005fa3;
+    transform: scale(1.03);
+}
+
+/* Prediction Result */
+#prediction-result {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    background: #f5f9ff;
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px rgba(0, 120, 215, 0.1);
+}
+
+#prediction-result h3 {
+    margin-bottom: 1rem;
+    color: #0078d7;
+}
+
+#risk-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Game Link Section */
+.game-link {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.game-link button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.game-link button:hover {
+    background: #1e7e34;
+    transform: scale(1.05);
+}
+
+/* Tooltip for curvature info */
+label span[title] {
+    background: #0078d7;
+    color: white;
+    border-radius: 50%;
+    padding: 0 6px;
+    cursor: help;
+    font-size: 0.8rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    #predict-btn {
+        grid-column: span 1;
+    }
+
+    .container {
+        padding: 1.5rem;
+    }
+}
