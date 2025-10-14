@@ -1,155 +1,118 @@
-/* ===== General Styles ===== */
+/* ==== General Layout ==== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f5f6fa;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
-
-.container {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px 30px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, #eef2f3 0%, #d9e4f5 100%);
+  margin: 0;
+  height: 100vh;
+  justify-content: center;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #2f3640;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #353b48;
+/* ==== Game Section ==== */
+#gameCanvas {
+  border: 3px solid #007bff;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
-/* ===== Form Styles ===== */
-.form-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.stats {
+  display: flex;
+  gap: 20px;
+  margin: 10px;
+  font-weight: bold;
 }
 
-label {
-    font-weight: 500;
-    margin-bottom: 4px;
-}
-
-input[type="number"],
-input[type="range"],
-select {
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid #dcdde1;
-    font-size: 14px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-input[type="checkbox"] {
-    margin-right: 6px;
-    transform: scale(1.1);
-}
-
-input[type="range"] {
-    width: 100%;
-}
-
-/* Buttons */
 button {
-    padding: 10px 16px;
-    background-color: #00a8ff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    margin-top: 10px;
+  font-family: inherit;
 }
 
-button:hover {
-    background-color: #0097e6;
+/* ==== Popup Modal ==== */
+#popup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  z-index: 1000;
 }
 
-/* ===== Prediction Result ===== */
-#prediction-result {
-    margin-top: 25px;
-    text-align: center;
+#popup-modal.visible {
+  display: flex;
+  opacity: 1;
 }
 
-#risk-text {
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 18px;
+#popup-modal.hidden {
+  display: none !important;
+  opacity: 0;
 }
 
-/* ===== Game Section ===== */
-#game-section {
-    margin-top: 30px;
-    text-align: center;
+.popup-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: fadeIn 0.4s ease;
 }
 
-#roads-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-    flex-wrap: wrap;
+@keyframes fadeIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .road-option {
-    padding: 15px 20px;
-    background-color: #f1f2f6;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    font-weight: 600;
-    min-width: 120px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .road-option:hover {
-    background-color: #dcdde1;
-    transform: scale(1.05);
+  background: #0056b3;
+}
+
+#continue-btn {
+  background: #28a745;
+  border: none;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#continue-btn:hover {
+  background: #218838;
 }
 
 #game-result {
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #2f3640;
-}
-
-#score-display {
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-/* ===== Game/Predictor Link ===== */
-.game-link {
-    text-align: center;
-    margin-top: 30px;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 600px) {
-    .container {
-        padding: 15px 20px;
-    }
-
-    #roads-container {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .road-option {
-        min-width: 80%;
-    }
+  font-weight: bold;
+  margin-top: 15px;
 }

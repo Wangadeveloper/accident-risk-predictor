@@ -7,22 +7,49 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
 <div class="container">
-    <h2>Pick the Safer Road Game</h2>
-    
-    <div id="game-section">
-        <h3>Pick the Safer Road</h3>
-        <button type="button" id="new-game-btn">New Roads</button>
-        <div id="roads-container"></div>
-        <p id="game-result"></p>
-        <p id="score-display">Score: 0</p>
+    <h1 class="page-title">🏁 Pick the Safer Road Game</h1>
+    <p class="intro-text">
+        Play the runner game! Jump over obstacles, and when you reach a junction, 
+        pick the safer road based on road descriptions. Choose wisely — you only have 3 lives!
+    </p>
+
+    <!-- Runner Section -->
+    <div id="runner-section">
+        <h2>🏃 Road Safety Runner</h2>
+
+        <div class="stats">
+            <p id="lives">Lives: 3</p>
+            <p id="score">Score: 0</p>
+        </div>
+
+        <canvas id="gameCanvas" width="700" height="300"></canvas>
+
+        <div class="controls">
+            <button id="new-game-btn">New Game</button>
+        </div>
     </div>
 
-    <a href="{{url_for('main.index') }}">
-        <button type="button">Back to Predictor</button>
-    </a>
+    <!-- Popup Modal -->
+    <div id="popup-modal" class="hidden">
+        <div id="popup-content">
+            <h3>🛣️ Choose Your Road</h3>
+            <div id="roads-container"></div>
+            <p id="game-result"></p>
+            <button id="continue-btn" class="hidden">Continue</button>
+        </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="back-link">
+        <a href="{{ url_for('main.index') }}">
+            <button type="button" class="back-btn">← Back to Predictor</button>
+        </a>
+    </div>
 </div>
 
-<script src="{{ url_for('static', filename='main.js') }}"></script>
+<script src="{{ url_for('static', filename='game.js') }}"></script>
+
 </body>
 </html>
