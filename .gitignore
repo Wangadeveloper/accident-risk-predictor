@@ -53,3 +53,4 @@ coverage.xml
 # Secrets / keys (optional if you have any)
 *.pem
 *.key
+venv/
