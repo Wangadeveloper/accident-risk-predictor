@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Safety Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Road Safety Predictor</h2>
+
+    <form method="POST" action="/">
+
+        {{ form.hidden_tag() }}
+
+        <!-- Road Type -->
+        <div class="form-group">
+            {{ form.road_type.label }}
+            {{ form.road_type(class="form-control") }}
+        </div>
+
+        <!-- Number of Lanes -->
+        <div class="form-group half">
+            {{ form.num_lanes.label }}
+            {{ form.num_lanes(class="form-control") }}
+        </div>
+
+        <!-- Curvature -->
+        <div class="form-group">
+            {{ form.curvature.label }}
+            <small class="form-text">
+                {{ form.curvature.description }}<br>
+                <em>0 = straight road, 0.5 = moderate bend, 1 = very sharp turn</em>
+            </small>
+            {{ form.curvature(step="0.01", placeholder="e.g. 0.3") }}
+            {% if form.curvature.errors %}
+                <div class="error">{{ form.curvature.errors[0] }}</div>
+            {% endif %}
+            </div>
+        <!-- Speed Limit -->
+        <div class="form-group">
+            {{ form.speed_limit.label }}
+            {{ form.speed_limit(class="form-control") }}
+        </div>
+
+        <!-- Lighting -->
+        <div class="form-group half">
+            {{ form.lighting.label }}
+            {{ form.lighting(class="form-control") }}
+        </div>
+
+        <!-- Weather -->
+        <div class="form-group half">
+            {{ form.weather.label }}
+            {{ form.weather(class="form-control") }}
+        </div>
+
+        <!-- Road Signs -->
+        <div class="form-group">
+            <label class="checkbox-label">
+                {{ form.road_signs_present() }}
+                {{ form.road_signs_present.label.text }}
+            </label>
+        </div>
+
+        <!-- Public Road -->
+        <div class="form-group">
+            <label class="checkbox-label">
+                {{ form.public_road() }}
+                {{ form.public_road.label.text }}
+            </label>
+        </div>
+
+        <!-- Time of Day -->
+        <div class="form-group">
+            {{ form.time_of_day.label }}
+            {{ form.time_of_day(class="form-control") }}
+        </div>
+
+        <!-- Holiday -->
+        <div class="form-group">
+            <label class="checkbox-label">
+                {{ form.holiday() }}
+                {{ form.holiday.label.text }}
+            </label>
+        </div>
+
+        <!-- School Season -->
+        <div class="form-group">
+            <label class="checkbox-label">
+                {{ form.school_season() }}
+                {{ form.school_season.label.text }}
+            </label>
+        </div>
+
+        <!-- Reported Accidents -->
+        <div class="form-group">
+            {{ form.num_reported_accidents.label }}
+            {{ form.num_reported_accidents(class="form-control") }}
+        </div>
+
+        <!-- Submit Button -->
+        {{ form.submit(class="submit-btn") }}
+    </form>
+</div>
+</body>
+</html>

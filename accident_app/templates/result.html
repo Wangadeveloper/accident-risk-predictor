@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accident Risk Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="container">
+    <h2>Prediction Result</h2>
+
+    {% if prediction is not none %}
+        <div class="result-box">
+            <p class="greeting">Hello!</p>
+            <p class="prediction">
+                There is a <strong>{{ prediction }}</strong> probability of getting an accident.
+            </p>
+            <p class="advice">🚗 Drive carefully and stay safe!</p>
+        </div>
+    {% else %}
+        <p>No prediction available. Please fill out the form again.</p>
+    {% endif %}
+
+    <a href="/" class="submit-btn" style="display:block; text-align:center; margin-top:1rem;">
+        Go Back
+    </a>
+</div>
+</body>
+</html>

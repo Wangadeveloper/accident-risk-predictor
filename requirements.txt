@@ -1,0 +1,7 @@
+flask
+flask-wtf
+wtforms
+catboost
+numpy
+pandas
+joblib
