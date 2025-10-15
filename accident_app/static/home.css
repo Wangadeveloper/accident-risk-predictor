@@ -8,26 +8,27 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 750px;
     margin: 40px auto;
     background: #fff;
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     animation: fadeIn 0.6s ease-in-out;
 }
 
 h2 {
     text-align: center;
     color: #2c3e50;
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1.5rem;
 }
 
 h3 {
     color: #0078d7;
     margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
 }
 
 /* Form Section */
@@ -39,25 +40,26 @@ h3 {
 form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.2rem 2rem;
+    gap: 0.8rem 1.5rem;
+    align-items: center;
 }
 
 label {
-    font-weight: 600;
+    font-weight: 500;
     color: #333;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
 }
 
 input[type="number"],
 select,
 input[type="range"] {
     width: 100%;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
     border: 1px solid #ccc;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: border-color 0.3s ease;
 }
 
@@ -65,18 +67,37 @@ input:focus,
 select:focus {
     outline: none;
     border-color: #0078d7;
-    box-shadow: 0 0 4px rgba(0, 120, 215, 0.3);
+    box-shadow: 0 0 3px rgba(0, 120, 215, 0.25);
 }
 
 input[type="checkbox"] {
-    transform: scale(1.2);
+    transform: scale(1.15);
     accent-color: #0078d7;
+    margin-right: 8px;
+}
+
+/* Inline Checkbox Labels */
+form label input[type="checkbox"] + span {
+    vertical-align: middle;
+}
+
+.checkbox-group {
+    grid-column: span 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
 }
 
 /* Range Display */
 #curvature_val {
     font-weight: bold;
     color: #0078d7;
+    margin-left: 4px;
 }
 
 /* Predict Button */
@@ -85,7 +106,7 @@ input[type="checkbox"] {
     background: #0078d7;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 10px 0;
     font-size: 1rem;
     border-radius: 10px;
     cursor: pointer;
@@ -95,28 +116,35 @@ input[type="checkbox"] {
 
 #predict-btn:hover {
     background: #005fa3;
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 /* Prediction Result */
 #prediction-result {
     text-align: center;
-    margin-top: 2.5rem;
-    padding: 1.5rem;
+    margin-top: 2rem;
+    padding: 1.2rem;
     background: #f5f9ff;
-    border-radius: 15px;
+    border-radius: 12px;
     box-shadow: inset 0 0 10px rgba(0, 120, 215, 0.1);
 }
 
 #prediction-result h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     color: #0078d7;
 }
 
 #risk-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #2c3e50;
+    margin-top: 0.5rem;
+}
+
+/* Reduce chart size */
+#risk-gauge {
+    width: 120px !important;
+    height: 120px !important;
 }
 
 /* Game Link Section */
@@ -131,8 +159,8 @@ input[type="checkbox"] {
     background: #28a745;
     color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 12px;
+    padding: 10px 18px;
+    border-radius: 10px;
     font-size: 1rem;
     cursor: pointer;
     transition: 0.3s ease;
@@ -150,7 +178,7 @@ label span[title] {
     border-radius: 50%;
     padding: 0 6px;
     cursor: help;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
 }
 
 /* Animations */
@@ -177,5 +205,10 @@ label span[title] {
 
     .container {
         padding: 1.5rem;
+    }
+
+    #risk-gauge {
+        width: 100px !important;
+        height: 100px !important;
     }
 }

@@ -232,5 +232,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ==== Touch Controls for Mobile ====
+let touchStartY = 0;
+let touchEndY = 0;
+
+// Record the start of a touch
+canvas.addEventListener('touchstart', e => {
+  if (e.touches.length === 1) {
+    touchStartY = e.touches[0].clientY;
+  }
+});
+
+// Record the end of a touch
+canvas.addEventListener('touchend', e => {
+  touchEndY = e.changedTouches[0].clientY;
+  const swipeUp = touchStartY - touchEndY;
+
+  // If user swiped up enough (minimum threshold)
+  if (swipeUp > 50 && !isJumping && gameRunning) {
+    isJumping = true;
+    ball.velocityY = -12; // same as keyboard jump
+  }
+});
+
+
   newGameBtn.addEventListener('click', resetGame);
 });
