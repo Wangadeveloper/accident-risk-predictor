@@ -9,7 +9,7 @@ body {
   align-items: center;
   min-height: 100vh;
   color: #222;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* === Main Container === */
